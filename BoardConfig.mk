@@ -1,0 +1,70 @@
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno405
+
+# Kernel
+BOARD_DTBTOOL_ARGS := -2
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
+BOARD_RAMDISK_OFFSET     := 0x02000000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/nubia/nx512j/dt.img
+BOARD_CUSTOM_BOOTIMG_MK := device/nubia/nx512j/mkbootimg.mk
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE := 25971520
+BOARD_CACHEIMAGE_PARTITION_SIZE := 134217728
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25971520
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13576175616 # 13576192000 - 16384
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Vendor Init
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+
+# Recovery
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_RECOVERY_SWIPE := true
+TARGET_PREBUILT_KERNEL := device/nubia/nx512j/kernel
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# TWRP Build Flags
+TARGET_RECOVERY_FSTAB := device/nubia/nx512j/recovery/etc/twrp.fstab
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := false
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+#USE_NINJA := false
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.secure=0 \
+    vro.allow.mock.location=0 \
+    ro.debuggable=1 \
+    ro.adb.secure=0
+
