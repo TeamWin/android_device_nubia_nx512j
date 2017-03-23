@@ -1,1 +1,1 @@
-# TWRP Device Tree For jalebi
+# TWRP Device Tree For NUBIA NX512J
