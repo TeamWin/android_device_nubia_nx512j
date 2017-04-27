@@ -22,7 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 LOCAL_PATH := device/nubia/nx512j
 
 # Charger
-PRODUCT_PACKAGES += charger charger_res_images
+PRODUCT_PACKAGES += charger charger_res_images \
+    init.recovery.qcom.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/dt.img:dt.img \

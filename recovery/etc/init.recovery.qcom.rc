@@ -1,0 +1,8 @@
+on init
+    # Enable DTW gesture & enable keypad
+    write /sys/bus/i2c/devices/5-0024/easy_wakeup_gesture 1
+    write system /sys/bus/i2c/devices/5-0024/keypad_enable 1
+
+    # Enable button lights & make them blink 
+    write /sys/class/leds/red/outn 56
+    write /sys/class/leds/red/brightness 3
