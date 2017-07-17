@@ -4,5 +4,5 @@ on init
     write system /sys/bus/i2c/devices/5-0024/keypad_enable 1
 
     # Enable button lights & make them blink 
-    write /sys/class/leds/red/outn 56
-    write /sys/class/leds/red/brightness 3
+    write /sys/class/leds/nubia_led/outn 56
+    write /sys/class/leds/nubia_led/brightness 3
